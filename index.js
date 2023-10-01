@@ -9,7 +9,7 @@ app.use(express.static('public'));
 app.get('/download', (req, res) => {
   const url = req.query.url;
 
-  exec(`python3 download_video.py ${url}`, (error, stdout, stderr) => {
+  exec(`python download_video.py ${url}`, (error, stdout, stderr) => {
     if (error) {
       console.error(`Error: ${error.message}`);
       res.status(500).send('Error occurred while downloading the video');
